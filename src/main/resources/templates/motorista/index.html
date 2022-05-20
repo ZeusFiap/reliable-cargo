@@ -1,0 +1,32 @@
+<html th:replace="~{base :: layout (conteudo=~{::main}, actions=~{::buttons}, title='Motoristas', section='Motoristas cadastrados')}">
+<body>
+<buttons>
+    <a role="button" class="btn btn-sm btn-outline-secondary" href="/motorista/novo">Adicionar motorista</a>
+    <!--    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+</buttons>
+<main>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nome completo</th>
+            <th scope="col">CNH</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Em atividade</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="caminhao: ${caminhoes}">
+            <th scope="row" th:text="${motorista.id}" />
+            <th th:text="${motorista.nmCompleto}"></th>
+            <th th:text="${motorista.cnhUk}"></th>
+            <th th:text="${motorista.tel}"></th>
+            <th th:text="${motorista.emAtividade ? 'Sim' : 'Não'}"></th>
+            <th><a th:href="${'/caminhao/' + caminhao.placa}" class="btn btn-primary btn-sm me-2">Editar</a><a th:href="${'/caminhao/' + caminhao.placa + '/delete'}" class="btn btn-danger btn-sm">Apagar</a></th>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

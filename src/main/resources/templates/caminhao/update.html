@@ -1,0 +1,50 @@
+<html th:replace="~{base :: layout (conteudo=~{::main}, actions=~{::buttons}, title='Caminhões', section='Editar caminhão')}">
+<body>
+<buttons></buttons>
+<main>
+  <form action="" th:object="${caminhao}" method="post">
+    <div class="mt-4">
+      <div class="mb-3 row">
+        <label for="inputPlaca" class="col-sm-2 col-form-label">Placa</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPlaca" maxlength="7" required="required" th:field="*{placa}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputChassi" class="col-sm-2 col-form-label">Chassi</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputChassi" required="required" th:field="*{chassi}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputMarca" class="col-sm-2 col-form-label">Marca</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputMarca" required="required" th:field="*{marca}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputModelo" class="col-sm-2 col-form-label">Modelo</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputModelo" required="required" th:field="*{modelo}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputAnoModelo" class="col-sm-2 col-form-label">Ano Modelo</label>
+        <div class="col-sm-10">
+          <input type="number" maxlength="4" class="form-control" id="inputAnoModelo" required="required" th:field="*{anoModelo}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="inputCor" class="col-sm-2 col-form-label">Cor</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputCor" required="required" th:field="*{cor}">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <button type="submit" class="btn btn-primary">Atualizar</button>
+      </div>
+    </div>
+  </form>
+</main>
+</body>
+</html>

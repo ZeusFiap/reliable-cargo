@@ -1,0 +1,38 @@
+<html th:replace="~{base :: layout (conteudo=~{::main}, actions=~{::buttons}, title='Motoristas', section='Cadastrar novo motorista')}">
+<body>
+<buttons></buttons>
+<main>
+    <form th:action="@{/motorista}" th:object="${motorista}" method="post">
+        <div class="mt-4">
+            <div class="mb-3 row">
+                <label for="nmCompleto" class="col-sm-2 col-form-label">Nome completo</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nmCompleto" required="required" maxlength="70" th:field="*{nmCompleto}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="cnhUk" class="col-sm-2 col-form-label">CNH (somente números)</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="cnhUk" required="required" th:field="*{cnhUk}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="tel" class="col-sm-2 col-form-label">Telefone</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="tel" required="required" maxlength="14" th:field="*{tel}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="emAtividade" class="col-sm-2 col-form-label">Modelo</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" class="form-control" id="emAtividade" required="required" th:checked="${emAtividade ? 'true' : 'false'}" value="true" th:field="*{emAtividade}">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
+</html>

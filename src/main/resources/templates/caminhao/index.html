@@ -1,0 +1,34 @@
+<html th:replace="~{base :: layout (conteudo=~{::main}, actions=~{::buttons}, title='Caminhões', section='Caminhões cadastrados')}">
+<body>
+<buttons>
+    <a role="button" class="btn btn-sm btn-outline-secondary" href="/caminhao/novo">Adicionar Caminhão</a>
+<!--    <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>-->
+</buttons>
+<main>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Placa</th>
+            <th scope="col">Chassi</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Ano Modelo</th>
+            <th scope="col">Cor</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="caminhao: ${caminhoes}">
+            <th scope="row" th:text="${caminhao.placa}" />
+            <th th:text="${caminhao.chassi}"></th>
+            <th th:text="${caminhao.marca}"></th>
+            <th th:text="${caminhao.modelo}"></th>
+            <th th:text="${caminhao.anoModelo}"></th>
+            <th th:text="${caminhao.cor}"></th>
+            <th><a th:href="${'/caminhao/' + caminhao.placa}" class="btn btn-primary btn-sm me-2">Editar</a><a th:href="${'/caminhao/' + caminhao.placa + '/delete'}" class="btn btn-danger btn-sm">Apagar</a></th>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
