@@ -17,13 +17,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="caminhao: ${caminhoes}">
+        <tr th:each="motorista: ${motoristas}">
             <th scope="row" th:text="${motorista.id}" />
             <th th:text="${motorista.nmCompleto}"></th>
             <th th:text="${motorista.cnhUk}"></th>
             <th th:text="${motorista.tel}"></th>
             <th th:text="${motorista.emAtividade ? 'Sim' : 'Não'}"></th>
-            <th><a th:href="${'/caminhao/' + caminhao.placa}" class="btn btn-primary btn-sm me-2">Editar</a><a th:href="${'/caminhao/' + caminhao.placa + '/delete'}" class="btn btn-danger btn-sm">Apagar</a></th>
+            <th><a th:href="${'/motorista/' + motorista.id}" class="btn btn-primary btn-sm me-2">Editar</a><a th:href="${'/motorista/' + motorista.id + '/delete'}" class="btn btn-danger btn-sm">Apagar</a></th>
         </tr>
         </tbody>
     </table>

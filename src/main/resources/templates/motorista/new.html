@@ -22,10 +22,11 @@
                     <input type="text" class="form-control" id="tel" required="required" maxlength="14" th:field="*{tel}">
                 </div>
             </div>
+            <h3 th:text="${emAtividade}"></h3>
             <div class="mb-3 row">
-                <label for="emAtividade" class="col-sm-2 col-form-label">Modelo</label>
-                <div class="col-sm-10">
-                    <input type="checkbox" class="form-control" id="emAtividade" required="required" th:checked="${emAtividade ? 'true' : 'false'}" value="true" th:field="*{emAtividade}">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="true" id="flexCheckChecked" th:checked="${motorista.emAtividade ? 'checked' : ''}" required th:field="*{emAtividade}">
+                    <label class="form-check-label" for="flexCheckChecked">Em atividade</label>
                 </div>
             </div>
             <div class="mb-3 row">

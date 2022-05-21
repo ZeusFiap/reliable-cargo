@@ -25,7 +25,7 @@ public class MotoristaController {
 
     @GetMapping("/motorista")
     public String index(Model model) {
-        model.addAttribute("caminhoes", motoristaRepository.findAll());
+        model.addAttribute("motoristas", motoristaRepository.findAll());
         return "motorista/index";
     }
 
@@ -40,10 +40,11 @@ public class MotoristaController {
         try {
             Motorista motorista = mapper.map(motoristaDto, Motorista.class);
             motorista = motoristaRepository.save(motorista);
-            redirectAttributes.addFlashAttribute("success", "Caminhão adicionado com sucesso");
+            redirectAttributes.addFlashAttribute("success", "Motorista adicionado com sucesso");
             return "redirect:/motorista/" + motorista.getId();
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Falha ao adicionar caminhão: " + e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "Falha ao adicionar motorista: " + e.getMessage());
+            System.out.print(e);
             return "redirect:/motorista";
         }
     }
@@ -52,7 +53,7 @@ public class MotoristaController {
     public String read(@PathVariable Long id, Model model, RedirectAttributes redirectAttributes) {
         Optional<Motorista> motorista = motoristaRepository.findById(id);
         if (motorista.isEmpty()) {
-            redirectAttributes.addFlashAttribute("error", "Caminhão não encontrado");
+            redirectAttributes.addFlashAttribute("error", "Motorista não encontrado");
             return "redirect:/motorista";
         }
         model.addAttribute("motorista", motorista.get());
@@ -62,10 +63,10 @@ public class MotoristaController {
     @PostMapping("/motorista/{id}")
     public String update(@PathVariable Long id, @ModelAttribute Motorista motoristaForm, RedirectAttributes redirectAttributes) {
         try {
-            Motorista motorista = motoristaRepository.save(motoristaForm);
-            redirectAttributes.addFlashAttribute("success", "Caminhão atualizado com sucesso!");
+            motoristaRepository.save(motoristaForm);
+            redirectAttributes.addFlashAttribute("success", "Motorista atualizado com sucesso!");
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Erro ao atualizar caminhão(" + e.getMessage() + ")");
+            redirectAttributes.addFlashAttribute("error", "Erro ao atualizar motorista(" + e.getMessage() + ")");
         }
         return "redirect:/motorista/" + id;
     }
@@ -75,13 +76,13 @@ public class MotoristaController {
         try {
             Optional<Motorista> motorista = motoristaRepository.findById(id);
             if (motorista.isEmpty()) {
-                redirectAttributes.addFlashAttribute("error", "Caminhão não encontrado");
+                redirectAttributes.addFlashAttribute("error", "Motorista não encontrado");
                 return "redirect:/motorista";
             }
             motoristaRepository.delete(motorista.get());
-            redirectAttributes.addFlashAttribute("success", "Caminhão apagado com sucesso!");
+            redirectAttributes.addFlashAttribute("success", "Motorista apagado com sucesso!");
         } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("error", "Erro ao apagar caminhão (" + e.getMessage() + ")");
+            redirectAttributes.addFlashAttribute("error", "Erro ao apagar motorista (" + e.getMessage() + ")");
         }
         return "redirect:/motorista";
     }

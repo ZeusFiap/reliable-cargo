@@ -1,15 +1,14 @@
 package br.com.zeus.goassistence.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "TB_MOTORISTA")
 public class Motorista {
     @Id
     @Column(name = "ID_MOTORISTA_PK", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="motorista_seq")
+    @SequenceGenerator(name="motorista_seq", sequenceName="motorista_seq", allocationSize = 1)
     private Long id;
 
     @Column(name = "NM_COMPLETO", nullable = false, length = 70)
