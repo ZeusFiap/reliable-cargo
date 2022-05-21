@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@EnableAutoConfiguration
-public class GoAssistenceApplication {
+public class ReliableCargoApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GoAssistenceApplication.class, args);
+        SpringApplication.run(ReliableCargoApplication.class, args);
     }
 
 }

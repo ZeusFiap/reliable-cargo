@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com.zeus</groupId>
-    <artifactId>GoAssistence</artifactId>
+    <artifactId>ReliableCargo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>GoAssistence</name>
-    <description>GoAssistence</description>
+    <name>ReliableCargo</name>
+    <description>ReliableCargo</description>
     <properties>
         <java.version>11</java.version>
     </properties>
