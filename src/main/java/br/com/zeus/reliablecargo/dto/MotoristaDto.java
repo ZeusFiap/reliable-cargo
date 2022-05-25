@@ -1,11 +1,19 @@
 package br.com.zeus.reliablecargo.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class MotoristaDto implements Serializable {
+    @NotBlank(message = "O nome completo é obrigatório")
+    @Size(max = 70, message = "O nome completo pode ter no máximo 70 caracteres")
     private final String nmCompleto;
+//    @NotBlank(message = "A CNH é obrigatória")
     private final Long cnhUk;
+    @NotBlank(message = "O telefone é obrigatório")
+    @Size(max = 14, message = "O telefone pode ter no máximo 14 caracteres")
     private final String tel;
     private final Boolean emAtividade;
 
